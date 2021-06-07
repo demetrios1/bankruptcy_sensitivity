@@ -1,0 +1,283 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\bibstyle{plainnat}
+\bibstyle{imsart-nameyear}
+\citation{maurer-wsj-2020}
+\citation{Chen-He-Ma-etal-2016}
+\citation{maurer-wsj-2020}
+\gdef\hy@title{Do forecasts of bankruptcy cause bankruptcy? A machine learning sensitivity analysis.}
+\thanksnewlabel{e2@email}{{dpapakos@asu.edu}{1}}
+\thanksnewlabel{e1@email}{{prhahn@asu.edu}{1}}
+\thanksnewlabel{e3@email}{{jared.murray@mccombs.utexas.edu}{1}}
+\thanksnewlabel{e4@email}{{szho@wharton.upenn.edu}{1}}
+\thanksnewlabel{e5@email}{{Joseph.J.Gerakos@tuck.dartmouth.edu}{1}}
+\thanksnewlabel{Athanks}{{1}{1}}
+\thanksnewlabel{e1thanks}{{*}{1}}
+\thanksnewlabel{e2thanks}{{\textdagger }{1}}
+\thanksnewlabel{Bthanks}{{2}{1}}
+\thanksnewlabel{e3thanks}{{\textdaggerdbl }{1}}
+\thanksnewlabel{Cthanks}{{3}{1}}
+\thanksnewlabel{e4thanks}{{\textsection }{1}}
+\thanksnewlabel{Dthanks}{{4}{1}}
+\thanksnewlabel{e5thanks}{{\textparagraph }{1}}
+\gdef\hy@author{Demetrios Papakostas, P. Richard Hahn, Jared Murray, Frank Zhou and Joseph Gerakos}
+\gdef\hy@subject{}
+\gdef\hy@keywords{BART, Causal Inference, heterogeneous treatment effects, self-fulfilling prophecy, sensitivity analysis}
+\gdef\author@num{5}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\@writefile{brf}{\backcite{maurer-wsj-2020}{{1}{1}{section.1}}}
+\@writefile{brf}{\backcite{maurer-wsj-2020}{{1}{1}{Hfootnote.1}}}
+\@writefile{brf}{\backcite{Chen-He-Ma-etal-2016}{{1}{1}{Hfootnote.1}}}
+\citation{rubin}
+\citation{pearl-2000}
+\citation{Holland-1986}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Methodological background}{2}{subsection.1.1}\protected@file@percent }
+\@writefile{brf}{\backcite{rubin}{{2}{1.1}{subsection.1.1}}}
+\@writefile{brf}{\backcite{pearl-2000}{{2}{1.1}{equation.1.1}}}
+\@writefile{brf}{\backcite{Holland-1986}{{2}{1.1}{equation.1.3}}}
+\citation{imbens2014instrumental}
+\citation{larcker2010use}
+\citation{Imbens-rdd,Thistlethwaite-rdd}
+\citation{card1994}
+\citation{abadie2010,abadie2003}
+\citation{Wooldridge-2010}
+\citation{Manski}
+\citation{bcf}
+\citation{Hahn-2015}
+\@writefile{brf}{\backcite{imbens2014instrumental}{{3}{1.1}{equation.1.3}}}
+\@writefile{brf}{\backcite{larcker2010use}{{3}{1.1}{equation.1.3}}}
+\@writefile{brf}{\backcite{Imbens-rdd}{{3}{1.1}{equation.1.3}}}
+\@writefile{brf}{\backcite{Thistlethwaite-rdd}{{3}{1.1}{equation.1.3}}}
+\@writefile{brf}{\backcite{card1994}{{3}{1.1}{equation.1.3}}}
+\@writefile{brf}{\backcite{abadie2010}{{3}{1.1}{equation.1.3}}}
+\@writefile{brf}{\backcite{abadie2003}{{3}{1.1}{equation.1.3}}}
+\@writefile{brf}{\backcite{Wooldridge-2010}{{3}{1.1}{equation.1.3}}}
+\@writefile{brf}{\backcite{Manski}{{3}{1.1}{equation.1.3}}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Methodological contribution of this paper}{3}{subsection.1.2}\protected@file@percent }
+\@writefile{brf}{\backcite{bcf}{{3}{1.2}{subsection.1.2}}}
+\@writefile{brf}{\backcite{Hahn-2015}{{3}{1.2}{subsection.1.2}}}
+\citation{bart}
+\citation{Peng-2016}
+\citation{Cornfield}
+\citation{Wooldridge-2010}
+\citation{pearl-2000}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Paper structure}{4}{subsection.1.3}\protected@file@percent }
+\@writefile{brf}{\backcite{bart}{{4}{1.3}{subsection.1.3}}}
+\@writefile{brf}{\backcite{Peng-2016}{{4}{1.3}{subsection.1.3}}}
+\@writefile{brf}{\backcite{Cornfield}{{4}{1.3}{subsection.1.3}}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}The bivariate probit model with endogenous predictor}{4}{section.2}\protected@file@percent }
+\@writefile{brf}{\backcite{Wooldridge-2010}{{4}{2}{section.2}}}
+\newlabel{latentutility}{{4}{4}{The bivariate probit model with endogenous predictor}{equation.2.4}{}}
+\newlabel{align1}{{6}{4}{The bivariate probit model with endogenous predictor}{equation.2.6}{}}
+\citation{pearl-2000}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The bivariate probit entails ellipse shaped probability contours, where (when $\gamma =0$) the probability mass associated to each quadrant represents the four combinations of the bivariate binary observed variables $(B, G)$. The shaded region in the right panel, labeled ``A'', is subtracted from the upper left quadrant and added to the upper right quadrant when a going concern is issued, thus reflecting the endogeneity of the going concern variable. The parameters $\rho $ and $\gamma $ are estimable because changes in the shape of the ellipses, governed by $\rho $, lead to distinct apportioning of probability than do changes in the width of the A region, governed by $\gamma $.\relax }}{5}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{ellipse}{{1}{5}{The bivariate probit entails ellipse shaped probability contours, where (when $\gamma =0$) the probability mass associated to each quadrant represents the four combinations of the bivariate binary observed variables $(B, G)$. The shaded region in the right panel, labeled ``A'', is subtracted from the upper left quadrant and added to the upper right quadrant when a going concern is issued, thus reflecting the endogeneity of the going concern variable. The parameters $\rho $ and $\gamma $ are estimable because changes in the shape of the ellipses, governed by $\rho $, lead to distinct apportioning of probability than do changes in the width of the A region, governed by $\gamma $.\relax }{figure.caption.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}A causal interpretation of $\gamma $}{5}{subsection.2.1}\protected@file@percent }
+\@writefile{brf}{\backcite{pearl-2000}{{5}{2.1}{subsection.2.1}}}
+\newlabel{docalc}{{7}{5}{A causal interpretation of $\gamma $}{equation.2.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Conditional on observable attributes $\mathbf  {x}$ (not shown), the causal diagram above stipulates the temporal ordering among the firm's private information $U$, the auditor risk assessment $G$, and the firm's bankruptcy outcome, $B$.\relax }}{5}{figure.caption.2}\protected@file@percent }
+\newlabel{causaldiag}{{2}{5}{Conditional on observable attributes $\mathbf {x}$ (not shown), the causal diagram above stipulates the temporal ordering among the firm's private information $U$, the auditor risk assessment $G$, and the firm's bankruptcy outcome, $B$.\relax }{figure.caption.2}{}}
+\citation{Heckman-1978}
+\citation{Heckman-1978}
+\citation{Heckman-1978}
+\citation{Heckman-1978}
+\@writefile{brf}{\backcite{pearl-2000}{{6}{2.1}{figure.caption.2}}}
+\newlabel{backdoor}{{8}{6}{A causal interpretation of $\gamma $}{equation.2.8}{}}
+\citation{Evans-Schwab-1995}
+\citation{Heckman-1978}
+\citation{Altonji-Elder-Taber-2005}
+\citation{Wooldridge-2010}
+\newlabel{techremarks}{{2.2}{7}{Identification and estimation for bivariate probit models}{subsection.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Identification and estimation for bivariate probit models}{7}{subsection.2.2}\protected@file@percent }
+\@writefile{brf}{\backcite{Heckman-1978}{{7}{2.2}{subsection.2.2}}}
+\@writefile{brf}{\backcite{Heckman-1978}{{7}{2.2}{subsection.2.2}}}
+\@writefile{brf}{\backcite{Heckman-1978}{{7}{2.2}{subsection.2.2}}}
+\@writefile{brf}{\backcite{Heckman-1978}{{7}{2.2}{subsection.2.2}}}
+\@writefile{brf}{\backcite{Evans-Schwab-1995}{{7}{2.2}{subsection.2.2}}}
+\@writefile{brf}{\backcite{Heckman-1978}{{7}{2.2}{subsection.2.2}}}
+\@writefile{brf}{\backcite{Altonji-Elder-Taber-2005}{{7}{2.2}{subsection.2.2}}}
+\@writefile{brf}{\backcite{Wooldridge-2010}{{7}{2.2}{subsection.2.2}}}
+\newlabel{section_indirect_inference}{{3}{7}{Modular sensitivity analysis with machine learning}{section.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Modular sensitivity analysis with machine learning}{7}{section.3}\protected@file@percent }
+\newlabel{eq2}{{11}{7}{Modular sensitivity analysis with machine learning}{equation.3.11}{}}
+\newlabel{realtreat}{{12}{7}{Modular sensitivity analysis with machine learning}{equation.3.12}{}}
+\newlabel{maineq}{{13}{7}{Modular sensitivity analysis with machine learning}{equation.3.13}{}}
+\citation{rf}
+\citation{boost}
+\citation{bart}
+\newlabel{treateq}{{14}{8}{Modular sensitivity analysis with machine learning}{equation.3.14}{}}
+\newlabel{long}{{15}{8}{Modular sensitivity analysis with machine learning}{equation.3.15}{}}
+\@writefile{brf}{\backcite{rf}{{8}{3}{equation.3.15}}}
+\@writefile{brf}{\backcite{boost}{{8}{3}{equation.3.15}}}
+\@writefile{brf}{\backcite{bart}{{8}{3}{equation.3.15}}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Projecting the reduced form probabilities onto the causal parameters}{8}{subsection.3.1}\protected@file@percent }
+\citation{Chipman-1998}
+\citation{Albert-1993}
+\citation{bcf}
+\citation{bcf}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Monotone BART for reduced form inference}{9}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Probit BART Overview}{9}{subsection.4.1}\protected@file@percent }
+\newlabel{bart_setup}{{16}{9}{Probit BART Overview}{equation.4.16}{}}
+\@writefile{brf}{\backcite{Chipman-1998}{{9}{4.1}{equation.4.16}}}
+\@writefile{brf}{\backcite{Albert-1993}{{9}{4.1}{equation.4.16}}}
+\newlabel{bart_binary}{{17}{9}{Probit BART Overview}{equation.4.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces (Left) An example binary tree, with internal nodes labelled by their splitting rules and terminal nodes labelled with the corresponding parameters $m_{lb}$. (Right) The corresponding partition of the sample space and the step function. Figure from \citep  {bcf}.\relax }}{10}{figure.caption.3}\protected@file@percent }
+\@writefile{brf}{\backcite{bcf}{{10}{3}{figure.caption.3}}}
+\newlabel{fig:treestep}{{3}{10}{(Left) An example binary tree, with internal nodes labelled by their splitting rules and terminal nodes labelled with the corresponding parameters $m_{lb}$. (Right) The corresponding partition of the sample space and the step function. Figure from \citep {bcf}.\relax }{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Monotone probit BART}{10}{subsection.4.2}\protected@file@percent }
+\newlabel{eq:bart-da0}{{19}{10}{Monotone probit BART}{equation.4.19}{}}
+\newlabel{eq:Rprobs}{{4.2}{11}{Monotone probit BART}{equation.4.19}{}}
+\newlabel{eq:bart-da1}{{20}{11}{Monotone probit BART}{equation.4.20}{}}
+\newlabel{empirical_section}{{5}{11}{Empirical analysis of bankruptcy data}{section.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Empirical analysis of bankruptcy data}{11}{section.5}\protected@file@percent }
+\citation{paper}
+\citation{defond-2002}
+\citation{hahnslice}
+\newlabel{data_section}{{5.1}{12}{Data}{subsection.5.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Data}{12}{subsection.5.1}\protected@file@percent }
+\newlabel{covariates}{{5.1}{12}{Data}{subsection.5.1}{}}
+\@writefile{brf}{\backcite{paper}{{12}{5.1}{Item.15}}}
+\@writefile{brf}{\backcite{defond-2002}{{12}{5.1}{Item.15}}}
+\newlabel{sens_analysis}{{5.2}{12}{Sensitivity to the distribution of private information}{subsection.5.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Sensitivity to the distribution of private information}{12}{subsection.5.2}\protected@file@percent }
+\citation{Cornfield}
+\citation{evalue}
+\citation{Peng-2016}
+\@writefile{brf}{\backcite{hahnslice}{{13}{5.2}{subsection.5.2}}}
+\newlabel{shark}{{22}{13}{Sensitivity to the distribution of private information}{equation.5.22}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The reduced form probabilities (\ref  {long}) were estimated using BART with a monotonicity constraint on the going concern variable. We further require $b_1(\mathbf  {x})>b_0(\mathbf  {x})$ in the projection step. Posterior summaries based on 500 Monte Carlo samples. $\sigma $ refers to the implied standard deviations of the different distributions. \relax }}{13}{table.caption.4}\protected@file@percent }
+\newlabel{resultssummary_rr}{{1}{13}{The reduced form probabilities (\ref {long}) were estimated using BART with a monotonicity constraint on the going concern variable. We further require $b_1(\bm {x})>b_0(\bm {x})$ in the projection step. Posterior summaries based on 500 Monte Carlo samples. $\sigma $ refers to the implied standard deviations of the different distributions. \relax }{table.caption.4}{}}
+\newlabel{E-value-comparison}{{5.3}{13}{Comparison with the E-value}{subsection.5.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Comparison with the E-value}{13}{subsection.5.3}\protected@file@percent }
+\@writefile{brf}{\backcite{Cornfield}{{13}{5.3}{subsection.5.3}}}
+\@writefile{brf}{\backcite{evalue}{{13}{5.3}{subsection.5.3}}}
+\@writefile{brf}{\backcite{Peng-2016}{{13}{5.3}{subsection.5.3}}}
+\citation{Peng-2016}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Left: Plot of inducement effect over observed risk ratio for different standard deviations $\sigma $ for $f$ normally distributed (red), sharkfin ($q=0.9$) with right skew (black), and sharkfin ($q=0.1$) with left skew (blue). The mean observed risk ratio was 30.80. On right is a plot of the shark fin with $q=0.1$ and $q=0.9$, for visual purposes. \relax }}{14}{figure.caption.5}\protected@file@percent }
+\newlabel{f_explain_plots}{{4}{14}{Left: Plot of inducement effect over observed risk ratio for different standard deviations $\sigma $ for $f$ normally distributed (red), sharkfin ($q=0.9$) with right skew (black), and sharkfin ($q=0.1$) with left skew (blue). The mean observed risk ratio was 30.80. On right is a plot of the shark fin with $q=0.1$ and $q=0.9$, for visual purposes. \relax }{figure.caption.5}{}}
+\newlabel{high_thresh}{{23}{14}{Comparison with the E-value}{equation.5.23}{}}
+\newlabel{true_causal_rr}{{24}{14}{Comparison with the E-value}{equation.5.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces $\text  {RR}_{GU}$ is the maximum risk ratio comparing any two categories of confounding and $\text  {RR}_{UB}$ is the maximum risk ratio for any specific level of the unmeasured confounders comparing those with and without treatment, controlling for $\mathbf  {x}$.\relax }}{14}{figure.caption.6}\protected@file@percent }
+\newlabel{rel_risk_table}{{5}{14}{$\text {RR}_{GU}$ is the maximum risk ratio comparing any two categories of confounding and $\text {RR}_{UB}$ is the maximum risk ratio for any specific level of the unmeasured confounders comparing those with and without treatment, controlling for $\bm {x}$.\relax }{figure.caption.6}{}}
+\@writefile{brf}{\backcite{Peng-2016}{{14}{5.3}{figure.caption.6}}}
+\newlabel{eval_full}{{25}{14}{Comparison with the E-value}{equation.5.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces E-value vs ratio}}{15}{figure.caption.7}\protected@file@percent }
+\newlabel{E-val-ratio_audit}{{6}{15}{E-value vs ratio}{figure.caption.7}{}}
+\newlabel{individ_firms}{{5.4}{15}{Posterior Individual Inducement Effects for Specific Firms}{subsection.5.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Posterior Individual Inducement Effects for Specific Firms}{15}{subsection.5.4}\protected@file@percent }
+\citation{bcffreak}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Different ACRR estimates for specific firms}}{16}{table.caption.8}\protected@file@percent }
+\newlabel{individ_firm_table}{{2}{16}{Different ACRR estimates for specific firms}{table.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Apple vs Jetblue}}{16}{figure.caption.9}\protected@file@percent }
+\newlabel{individ_firm_plot}{{7}{16}{Apple vs Jetblue}{figure.caption.9}{}}
+\newlabel{4.5}{{5.5}{16}{Exploratory subgroup analysis}{subsection.5.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Exploratory subgroup analysis}{16}{subsection.5.5}\protected@file@percent }
+\@writefile{brf}{\backcite{bcffreak}{{16}{5.5}{subsection.5.5}}}
+\citation{Campbell-Hilscher-Szilagyi-2008}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Left: A small tree fit to inducement effects (risk ratios). This is also the group of variables we investigate as moderators. Follow down tree to identify subgroup. Right: Plot of difference of inducement effects across the posterior draws between the largest and smallest inducement effect subgroups (bottom right and bottom left respectively on the tree). \relax }}{17}{figure.caption.10}\protected@file@percent }
+\newlabel{cart_tree_RR}{{8}{17}{Left: A small tree fit to inducement effects (risk ratios). This is also the group of variables we investigate as moderators. Follow down tree to identify subgroup. Right: Plot of difference of inducement effects across the posterior draws between the largest and smallest inducement effect subgroups (bottom right and bottom left respectively on the tree). \relax }{figure.caption.10}{}}
+\@writefile{brf}{\backcite{Campbell-Hilscher-Szilagyi-2008}{{17}{5}{Hfootnote.5}}}
+\citation{Chen-He-Ma-etal-2016}
+\citation{Feldmann-Read-2013}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Left: A small tree fit to the $\Pr (B=1\mid \mathbf  {x}, \text  {do}(G=0))$, $B_0$ for short. Right: Plot of differences of $B_0$ across the posterior draws between the largest and smallest $B_0$ effect subgroups (bottom right and bottom left respectively on the tree).\relax }}{18}{figure.caption.11}\protected@file@percent }
+\newlabel{B0_tree_fig}{{9}{18}{Left: A small tree fit to the $\Pr (B=1\mid \bm {x}, \text {do}(G=0))$, $B_0$ for short. Right: Plot of differences of $B_0$ across the posterior draws between the largest and smallest $B_0$ effect subgroups (bottom right and bottom left respectively on the tree).\relax }{figure.caption.11}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Because we are operating in the binary treatment/binary response world, we have just four outcomes. The first row refers a firm that, regardless of a receiving going concern opinion, does not go bankrupt (``No Inducement''). ``Prevention'' refers to the situation in which, without the treatment, the firm would have gone bankrupt, but with the going concern opinion it does not. We do not allow for this situation given our monotonicity assumption $\Pr (B=1\mid \mathbf  {x}, G=1)\geq \Pr (B=1\mid \mathbf  {x}, G=0)$. ``Induced bankruptcy'' refers to the situation in which the firm goes bankrupt because of the going concern opinion. ``No prevention'' means, regardless of going concern opinion being issued, the company goes bankrupt.\relax }}{18}{table.caption.12}\protected@file@percent }
+\newlabel{tab:induce_explain_table}{{3}{18}{Because we are operating in the binary treatment/binary response world, we have just four outcomes. The first row refers a firm that, regardless of a receiving going concern opinion, does not go bankrupt (``No Inducement''). ``Prevention'' refers to the situation in which, without the treatment, the firm would have gone bankrupt, but with the going concern opinion it does not. We do not allow for this situation given our monotonicity assumption $\Pr (B=1\mid \bm {x}, G=1)\geq \Pr (B=1\mid \bm {x}, G=0)$. ``Induced bankruptcy'' refers to the situation in which the firm goes bankrupt because of the going concern opinion. ``No prevention'' means, regardless of going concern opinion being issued, the company goes bankrupt.\relax }{table.caption.12}{}}
+\newlabel{prevent_eq}{{27}{18}{Exploratory subgroup analysis}{equation.5.27}{}}
+\citation{nelder}
+\@writefile{brf}{\backcite{Chen-He-Ma-etal-2016}{{19}{5.5}{equation.5.27}}}
+\@writefile{brf}{\backcite{Feldmann-Read-2013}{{19}{5.5}{equation.5.27}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Left: A small tree fit to the risk difference, $\Pr (B =1\mid \mathbf  {x}, \text  {do}(G=1))-\Pr (B=1\mid \mathbf  {x}, \text  {do}(G=0))$, which is under monotonicity of going concerns is equivalent to the probability that the bankruptcy was induced. Right: Posterior subgroup differences between the largest and smallest treatment effect subgroups (bottom right and bottom left respectively on the tree).\relax }}{19}{figure.caption.13}\protected@file@percent }
+\newlabel{cart_tree_treat}{{10}{19}{Left: A small tree fit to the risk difference, $\Pr (B =1\mid \bm {x}, \text {do}(G=1))-\Pr (B=1\mid \bm {x}, \text {do}(G=0))$, which is under monotonicity of going concerns is equivalent to the probability that the bankruptcy was induced. Right: Posterior subgroup differences between the largest and smallest treatment effect subgroups (bottom right and bottom left respectively on the tree).\relax }{figure.caption.13}{}}
+\newlabel{sim_study}{{6}{19}{Simulation studies}{section.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Simulation studies}{19}{section.6}\protected@file@percent }
+\citation{Meng-Schmidt-1985}
+\citation{Freedman-Sekhon-2010}
+\newlabel{bivar_simsec}{{6.1}{20}{Comparison to bivariate probit}{subsection.6.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Comparison to bivariate probit}{20}{subsection.6.1}\protected@file@percent }
+\newlabel{model3}{{6.1}{20}{Comparison to bivariate probit}{subsection.6.1}{}}
+\newlabel{nonlindgp}{{6.2}{20}{Sensitivity to $f$}{subsection.6.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Sensitivity to $f$}{20}{subsection.6.2}\protected@file@percent }
+\newlabel{newnonlinmodel}{{28}{20}{Sensitivity to $f$}{equation.6.28}{}}
+\@writefile{brf}{\backcite{nelder}{{20}{6}{Hfootnote.6}}}
+\@writefile{brf}{\backcite{Meng-Schmidt-1985}{{20}{8}{Hfootnote.8}}}
+\@writefile{brf}{\backcite{Freedman-Sekhon-2010}{{20}{8}{Hfootnote.8}}}
+\citation{bcf}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces We simulate from the bivariate probit with 25,000 observations and deploy our methodology. ACRR = average causal risk ratio. ICRR = individual causal risk ratio, cor refers to the correlation between predicted and true for the individual causal risk ratios, and the rmse is the root mean square error.\relax }}{21}{table.caption.14}\protected@file@percent }
+\newlabel{bivartable}{{4}{21}{We simulate from the bivariate probit with 25,000 observations and deploy our methodology. ACRR = average causal risk ratio. ICRR = individual causal risk ratio, cor refers to the correlation between predicted and true for the individual causal risk ratios, and the rmse is the root mean square error.\relax }{table.caption.14}{}}
+\newlabel{E-val_sec}{{6.3}{21}{Relationship with E-values: Simulations}{subsection.6.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Relationship with E-values: Simulations}{21}{subsection.6.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Different $f(u)$ as described in DGP(\ref  {newnonlinmodel}). $\mbox  {N}=25,000$. Wrong $f(u)$ indicates the distribution of $U$ we used to solve the system of equations in \ref  {maineq}, i.e. how we mis-specified. True indicates true average causal risk ratio (ACRR), and correct est. indicates our estimate of the ACRR when \emph  {correctly} specifying $f(u)$. We use standard deviation instead of variance for our spread parameter. Lap refers to the Laplacian distribution. LBP refers to bivariate probit regression without smoothing, and SBP refers to bivariate probit regression with smoothing covariates, i.e. where the smooth term for each covariate is made of basis functions.\relax }}{22}{table.caption.15}\protected@file@percent }
+\newlabel{nonlintable}{{5}{22}{Different $f(u)$ as described in DGP(\ref {newnonlinmodel}). $\N =25,000$. Wrong $f(u)$ indicates the distribution of $U$ we used to solve the system of equations in \ref {maineq}, i.e. how we mis-specified. True indicates true average causal risk ratio (ACRR), and correct est. indicates our estimate of the ACRR when \emph {correctly} specifying $f(u)$. We use standard deviation instead of variance for our spread parameter. Lap refers to the Laplacian distribution. LBP refers to bivariate probit regression without smoothing, and SBP refers to bivariate probit regression with smoothing covariates, i.e. where the smooth term for each covariate is made of basis functions.\relax }{table.caption.15}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Mis-specifying distribution: check skewness}}{22}{table.caption.16}\protected@file@percent }
+\newlabel{nonlintablesharkfin}{{6}{22}{Mis-specifying distribution: check skewness}{table.caption.16}{}}
+\newlabel{mono_section}{{6.4}{22}{Value of monotonicity}{subsection.6.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Value of monotonicity}{22}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Discussion}{22}{section.7}\protected@file@percent }
+\@writefile{brf}{\backcite{bcf}{{22}{9}{Hfootnote.9}}}
+\citation{Evans-Schwab-1995}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Mis-specifying distribution: check variance change}}{23}{table.caption.17}\protected@file@percent }
+\newlabel{nonlintablesharkfin_2}{{7}{23}{Mis-specifying distribution: check variance change}{table.caption.17}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Mis-specifying distribution: check skewness for bigger q, ACRRT and ACRRC}}{23}{table.caption.18}\protected@file@percent }
+\newlabel{RRT_RRC_compare}{{8}{23}{Mis-specifying distribution: check skewness for bigger q, ACRRT and ACRRC}{table.caption.18}{}}
+\@writefile{brf}{\backcite{Evans-Schwab-1995}{{23}{7}{section.7}}}
+\@writefile{toc}{\contentsline {section}{Acknowledgements}{23}{section*.22}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces E-val vs ratio}}{24}{figure.caption.19}\protected@file@percent }
+\newlabel{E-val-ratio}{{11}{24}{E-val vs ratio}{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Comparing Bart with and without monotinicity constraint}}{24}{figure.caption.20}\protected@file@percent }
+\newlabel{monovsnorm}{{12}{24}{Comparing Bart with and without monotinicity constraint}{figure.caption.20}{}}
+\bibdata{sample}
+\bibcite{abadie2003}{{1}{2003}{{Abadie and Gardeazabal}}{{}}}
+\bibcite{abadie2010}{{2}{2010}{{Abadie et~al.}}{{Abadie, Diamond, and Hainmuller}}}
+\bibcite{Albert-1993}{{3}{1998}{{Albert and Chib}}{{}}}
+\bibcite{Altonji-Elder-Taber-2005}{{4}{2005}{{Altonji et~al.}}{{Altonji, Elder, and Taber}}}
+\bibcite{rf}{{5}{2001}{{Breiman}}{{}}}
+\bibcite{Campbell-Hilscher-Szilagyi-2008}{{6}{2008}{{Campbell et~al.}}{{Campbell, Hilscher, and Szilagyi}}}
+\bibcite{card1994}{{7}{1994}{{Card and Krueger}}{{}}}
+\bibcite{Chen-He-Ma-etal-2016}{{8}{2016}{{Chen et~al.}}{{Chen, He, Ma, and Stice}}}
+\bibcite{boost}{{9}{2016}{{Chen and Guestrin}}{{}}}
+\bibcite{Chipman-1998}{{10}{1998}{{Chipman et~al.}}{{Chipman, George, and McCulloch}}}
+\bibcite{bart}{{11}{2010}{{Chipman et~al.}}{{Chipman, George, and McCulloch}}}
+\bibcite{Cornfield}{{12}{1959}{{Cornfield et~al.}}{{Cornfield, Haenszel, Hammond, Lilienfeld, Shimkin, and Wynder}}}
+\bibcite{defond-2002}{{13}{2002}{{DeFond et~al.}}{{DeFond, Raghunandan, and Subramanyam}}}
+\bibcite{Evans-Schwab-1995}{{14}{1995}{{Evans and Schwab}}{{}}}
+\bibcite{Feldmann-Read-2013}{{15}{2013}{{Feldmann and Read}}{{}}}
+\bibcite{Freedman-Sekhon-2010}{{16}{2010}{{Freedman and Sekhon}}{{}}}
+\bibcite{paper}{{17}{2016}{{Gerakos et~al.}}{{Gerakos, Hahn, Kovrijnykh, and Zhou}}}
+\bibcite{Hahn-2015}{{18}{2015}{{Hahn and Carvalho}}{{}}}
+\bibcite{hahnslice}{{19}{2017}{{Hahn et~al.}}{{Hahn, He, and Lopes}}}
+\bibcite{bcf}{{20}{2020}{{Hahn et~al.}}{{Hahn, Murray, and Carvalho}}}
+\bibcite{Heckman-1978}{{21}{1978}{{Heckman}}{{}}}
+\bibcite{Holland-1986}{{22}{1986}{{Holland}}{{}}}
+\bibcite{Imbens-rdd}{{23}{2008}{{Imbens and Lemieux}}{{}}}
+\bibcite{imbens2014instrumental}{{24}{2014}{{Imbens}}{{}}}
+\bibcite{larcker2010use}{{25}{2010}{{Larcker and Rusticus}}{{}}}
+\bibcite{Manski}{{26}{2007}{{Manski}}{{}}}
+\bibcite{maurer-wsj-2020}{{27}{2020}{{Maurer}}{{}}}
+\bibcite{Meng-Schmidt-1985}{{28}{1985}{{Meng and Schmidt}}{{}}}
+\bibcite{nelder}{{29}{1965}{{Nelder and Mead}}{{}}}
+\bibcite{pearl-2000}{{30}{2000}{{Pearl}}{{}}}
+\@writefile{toc}{\contentsline {section}{References}{25}{section*.24}\protected@file@percent }
+\bibcite{Peng-2016}{{31}{2016}{{Peng and VanderWeele}}{{}}}
+\bibcite{rubin}{{32}{1974}{{Rubin}}{{}}}
+\bibcite{Thistlethwaite-rdd}{{33}{1960}{{Thistlethwaite and Campbell}}{{}}}
+\bibcite{evalue}{{34}{2017}{{VanderWeele and Ding}}{{}}}
+\bibcite{bcffreak}{{35}{2020}{{Woody et~al.}}{{Woody, Hahn, and Murray}}}
+\bibcite{Wooldridge-2010}{{36}{2010}{{Woolridge}}{{}}}
