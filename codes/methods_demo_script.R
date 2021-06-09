@@ -4,7 +4,8 @@ library(tidyverse)
 library(dplyr)
 library(dbarts)
 library(bcf)
-
+##uncomment this line
+#install.packages('./monotone_bart/fastbart_2.0.tar.gz', repos = NULL, type="source")
 library(fastbart)
 
 
