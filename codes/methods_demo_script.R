@@ -6,7 +6,7 @@ library(dbarts)
 library(bcf)
 ##uncomment this line
 #install.packages('./monotone_bart/fastbart_2.0.tar.gz', repos = NULL, type="source")
-library(fastbart)
+library(monbart)
 
 
 monotone_bart = function(y, z, x, xpred, nskip=5000, ndpost=5000, m = 50, n=N) {
@@ -91,7 +91,7 @@ BARTpred=function(df, treat=G, Outcome=B,vars, mono=T){
     
     # mono fits
     
-    bart_mono = monotone_bart(y = as.numeric(c(ytrain1, ytrain0)==1),
+    bart_mono = monbart::monotone_bart(y = as.numeric(c(ytrain1, ytrain0)==1),
                               z = 1-c(rep(1, length(ytrain1)), rep(0, length(ytrain0))),
                               x = rbind(xtraintreat, xtraincontrol),
                               xpred = xtest, nskip = 2000, ndpost = 2000,m=100)
