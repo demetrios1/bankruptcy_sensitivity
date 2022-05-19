@@ -1181,7 +1181,7 @@
 	\appendix
 	\section{Estimating the risk difference as estimand of interest}\label{4.4}
 	Rather than looking at the ratio of potential outcomes, it is often the case we want to investigate the difference in the expected value of each, i.e. we can look at \emph{risk differences}:
-	\[\text{Risk Difference}\rightarrow \delta \equiv \E(B^1)-E(B^0)\]
+	\[\text{Risk Difference}\rightarrow \Delta \equiv \E(B^1)-E(B^0)\]
 	In our framework, following similar reasoning as in section[\ref{section_indirect_inference}] in the main file,  risk differences can be defined as 
 	\[\Delta(\mathbf{x}_i)=\int_{\mathbb{R}} \Phi\qty(b_1(\mathbf{x})+u)f(u)\dd u - \int_{\mathbb{R}} \Phi\qty(b_0(\mathbf{x})+u) f(u)\dd u\]
 	The sample average risk difference (ARD) is therefore $\frac{1}{n}\sum_{i=1}^{n}\Delta(\mathbf{x}_i)$. In the case of the audit data, the average risk difference refers to percentage point difference in going bankrupt after receiving a going concern. We esimate the risk difference using our methodology as well as the bivariate probit with endogenous regressor model, (described in equation(4) in the main file), to the audit data.  Specifically, we used the same covariates as we used when fitting monotone bart, used the bankruptcy indicator as the binary outcome, and whether or not a going concern was issued as the ``treatment'' indicator.  Using our methodology, results for estimating risk differences on the audit data are presented in table \ref{resultssummary}.
@@ -1217,33 +1217,32 @@
 	When fitting the bivariate probit regression, parameters are estimated using maximum likelihood. Our ARD from this regression was 2.90 percentage points and a mean risk ratio of 2.82 with 95\% CI (1.33, 6.04).  Note, we used a regression spline approach to smooth our numeric covariates, where the smooth term for each covariate is made of basis functions, see \cite{marra} for details.  This gives us additional flexibility in fitting the model.
 	
 	\begin{table}[h]
-		\centering
+	\centering
 	
-		\begin{tabular}{lP{1.1cm}P{1.1cm}P{1.1cm}P{2.8cm}}
+	\begin{tabular}{lP{1.1cm}P{1.1cm}P{1.1cm}P{2.8cm}}
 		
-			\toprule
-			Distribution of $f(u)$  & ARD (\%)&ARD post (\%)& mean $B_1$ (\%) &95\% Credible interval for ARD (\%)  \\ \midrule
-			$\N(0,\sigma=0.1)$ &8.89&8.91&10.3&$\qty(6.95, 11.2)$\\ %\hline
-			$\N(0,\sigma=0.5)$ &3.62&3.76 &5.29 &$\qty(2.78, 4.97)$\\%\hline      
-			$\N(0,\sigma=1)$&0.41&0.63&2.57&$\qty(0.37, 0.97)$\\
-			Shark $q=0.25$, $s=0.5$; $\sigma=1.05$&0.11&0.24&2.44&$\qty(0.13, 0.40)$\\
-			Shark $q=0.75$, $s=1.25$; $\sigma=0.88$&2.39&2.57&4.30&$\qty(1.82, 3.52)$\\
-			
-			``Right Bump'' $\sigma=0.48$&1.98&2.17&4.10&$\qty(1.78, 2.69)$\\
-			98\% peak $\sigma=0.29$&6.85&7.08&8.62&$\qty(5.41, 9.06)$\\
-			90\% peak $\sigma=0.64$&1.85&2.03&4.02&$\qty(1.68, 2.51)$\\
-			%	80\% peak&1.66&4.30&100\\
-			
-			\bottomrule%\\\midrule %\hline       
-			%total&333&435&66&47&& \\ \bottomrule        
-		\end{tabular}
-		%\captionsetup{labelformat=empty}
-		\caption{The reduced form probabilities (equation (15) in the main file) were estimated using BART with a monotonicity constraint on the going concern variable.  We further require $b_1(\bm{x})>b_0(\bm{x})$ in the projection step.  Posterior summaries based on 500 Monte Carlo samples.  $\sigma$ refers to the implied standard deviations of the different distributions.}
-		%\caption{LHS of system of equations \ref{long} estimated using BART with monotonicity constraint.  Additional constraint in optimization/integration step requires $b_1(\bm{x})>b_0(\bm{x})$.  Credible interval based on quantiles of random sample of 500 posterior draws.  Interpret the inducement as percentage point increase in probability of bankruptcy.  $\sigma$ in the shark fin refers to implied standard deviation given $q$ and $s$ parameters. The mean $\tau$ column refers to the mean inducement effect calculated by solving the integral formulation of \ref{maineq} once with LHS probabilities given by the mean of the BART posterior estimate. mean $\tau$ post refers to the mean of the inducement effect after solving the system of equations for each 500 posterior draws of the estimates of the LHS probabilities of \ref{maineq}, and mean $B_1$ refers to the mean bankruptcy probability (including the treatment effect).}
-		\label{resultssummary}
-		%\end{bclogo}
-	\end{table}
-	
+		\toprule
+		Distribution of $f(u)$  & ARD (\%)&ARD post (\%)& mean $B_1$ (\%) &95\% Credible interval for ARD (\%)  \\ \midrule
+		$\N(0,\sigma=0.1)$ &8.89&8.91&10.3&$\qty(6.95, 11.2)$\\ %\hline
+		$\N(0,\sigma=0.5)$ &3.62&3.76 &5.29 &$\qty(2.78, 4.97)$\\%\hline      
+		$\N(0,\sigma=1)$&0.41&0.63&2.57&$\qty(0.37, 0.97)$\\
+		Shark $q=0.25$, $s=0.5$($\sigma=1.05$)&0.11&0.24&2.44&$\qty(0.13, 0.40)$\\
+		Shark $q=0.75$, $s=1.25$($\sigma=0.88$)&2.39&2.57&4.30&$\qty(1.82, 3.52)$\\
+		
+		%		98\% peak $\sigma=0.29$&6.85&7.08&8.62&$\qty(5.41, 9.06)$\\
+		Symmetric Mixture ($\sigma=0.64$)&1.85&2.03&4.02&$\qty(1.68, 2.51)$\\
+		Assymetric Mixture ($\sigma=0.48$)&1.98&2.17&4.10&$\qty(1.78, 2.69)$\\
+		%	80\% peak&1.66&4.30&100\\
+		
+		\bottomrule%\\\midrule %\hline       
+		%total&333&435&66&47&& \\ \bottomrule        
+	\end{tabular}
+	%\captionsetup{labelformat=empty}
+	\caption{The reduced form probabilities (equation (15) in the main file) were estimated using BART with a monotonicity constraint on the going concern variable.  We further require $b_1(\bm{x})>b_0(\bm{x})$ in the projection step.  Posterior summaries based on 500 Monte Carlo samples.  $\sigma$ refers to the implied standard deviations of the different distributions.}
+	%\caption{LHS of system of equations \ref{long} estimated using BART with monotonicity constraint.  Additional constraint in optimization/integration step requires $b_1(\bm{x})>b_0(\bm{x})$.  Credible interval based on quantiles of random sample of 500 posterior draws.  Interpret the inducement as percentage point increase in probability of bankruptcy.  $\sigma$ in the shark fin refers to implied standard deviation given $q$ and $s$ parameters. The mean $\tau$ column refers to the mean inducement effect calculated by solving the integral formulation of \ref{maineq} once with LHS probabilities given by the mean of the BART posterior estimate. mean $\tau$ post refers to the mean of the inducement effect after solving the system of equations for each 500 posterior draws of the estimates of the LHS probabilities of \ref{maineq}, and mean $B_1$ refers to the mean bankruptcy probability (including the treatment effect).}
+	\label{resultssummary}
+	%\end{bclogo}
+\end{table}
 	
 	It was stressed in the main document how using  BART with a monotonicity constraint improves our estimation of the ICRR, but the improvement is even more pronounced when studying risk differences.  
 	In figure \ref{monovsnorm_ITE}, we look at the comparison of IRD (individual risk difference) estimates from data generated by the bivariate probit, with the left hand side of our system of equation probabilites estimated with BART and monotone BART.  This is a similar plot to figure 14 in the main file, but with a different estimand of interest.
