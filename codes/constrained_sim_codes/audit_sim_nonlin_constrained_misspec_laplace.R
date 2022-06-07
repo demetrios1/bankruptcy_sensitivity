@@ -8,7 +8,7 @@ library(dplyr)
 library(tidyverse)
 library(foreach)
 library(bcf)
-library(fastbart)
+library(monbart)
 #library(GJRM)
 print('to avoid error message')
 monotone_bart = function(y, z, x, xpred, nskip=5000, ndpost=5000, m = 50, n=N) {
@@ -90,7 +90,7 @@ BARTpred=function(df, treat=G, Outcome=B,vars){
   
   # mono fits
   
-  bart_mono = monotone_bart(y = as.numeric(c(ytrain1, ytrain0)==1),
+  bart_mono = monbart::monotone_bart(y = as.numeric(c(ytrain1, ytrain0)==1),
                             z = 1-c(rep(1, length(ytrain1)), rep(0, length(ytrain0))),
                             x = rbind(xtraintreat, xtraincontrol),
                             xpred = xtest, nskip = 2000, ndpost = 2000,m=100)
