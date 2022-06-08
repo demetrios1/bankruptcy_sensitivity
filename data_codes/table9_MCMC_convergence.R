@@ -52,7 +52,7 @@ data_CIK_fix=read_csv(paste0(root_path, '/data_CIK_fix.csv'))
 #### updated data ####
 library(haven)
 data      = as.data.frame(read_dta(paste0(root_path,
-                                          "auditor_with_stratio.dta")))
+                                          "/auditor_with_stratio.dta")))
 colnames(data)
 set.seed(12296)
 
@@ -331,9 +331,9 @@ a1 <-data.frame(prob=mono_mcmc_pr1)%>%
   theme(plot.title = element_text(hjust = 0.5,size=14))
 a1
 
-ggsave("C:/Users/demetri/Dropbox/audit_paper/audit_paper_aoas/extraneous_figures/ApplePrBG1hist.pdf", 
+ggsave(paste0(here("Dropbox", "audit_paper"), "/audit_paper_aoas/extraneous_figures/ApplePrBG1hist.pdf"), 
        a1, height=6, width=6)
-ggsave("C:/Users/demetri/Dropbox/audit_paper/audit_paper_aoas/extraneous_figures/ApplePrBG0hist.pdf", 
+ggsave(paste0(here("Dropbox", "audit_paper"), "/audit_paper_aoas/extraneous_figures/ApplePrBG0hist.pdf"), 
        a0, height=6, width=6)
 #unlist(index_list)
 length(unlist(diag_z_BART_pr1))
