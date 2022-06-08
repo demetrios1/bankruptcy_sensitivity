@@ -39,8 +39,9 @@ bartFit <- bart(x, y)
 bartFit$n.chains
 plot(bartFit)
 
+library(here)
 # load data
-root_path <- "C:/Users/demetri/Dropbox/audit_paper/data/"
+root_path <- here('Dropbox', 'audit_paper', 'data')
 data      = read.dta( paste0(root_path, "AuditorFinal20160419.dta" ))
 #get these data from the cik archive on the web
 cik_ticker=read_delim(paste0(root_path, '/cik_ticker.csv'), 
