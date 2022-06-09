@@ -648,7 +648,8 @@ ninetyperc_diff=colMeans(ninetyperc_large)-colMeans(ninetyperc_small)
  root_path_post <- '/home/dpapakos/cred_intervals/credinterval_constrained_integral_newvar/'
  fill3_B1=data.table::fread(file = paste0(root_path_post, 'mean0sd0.5_credint_B1.csv'), na.strings = c("", "NA", "#N/A"))[-1]
  fill3_B0=data.table::fread(file = paste0(root_path_post, 'mean0sd0.5_credint_B0.csv'), na.strings = c("", "NA", "#N/A"))[-1]
- 
+ B1_frame <- t(fill3_B1)
+ B0_frame <- t(fill3_B0)
  #calculate the biggest risk difference subgroup values
  RD_B1 <- mean(rowMeans(B1_frame[largest_index_treat,]))
  RD_B0 <- mean(rowMeans(B0_frame[largest_index_treat,]))
