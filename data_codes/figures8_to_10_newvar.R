@@ -270,7 +270,7 @@ library(partykit)
 rrr$variable.importance
 rrr$frame
 #save as cart_tree_smallertree_newvar.pdf in the moderating variables/new_vars_trees folder
-#save as 8 x 6
+#save as 7 x 5 portrait
 rpart.plot::rpart.plot(rrr, extra=1)
 #save as cart_tree_B1_newvar.pdf in the moderating variables/new_vars_trees folder
 rpart.plot::rpart.plot(B1tree, extra=1)
