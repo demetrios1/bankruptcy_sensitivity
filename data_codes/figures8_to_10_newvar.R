@@ -5,7 +5,7 @@ library(foreign)
 library(tidyverse)
 library(foreach)
 library(bcf)
-library(monbart)
+#library(fastbart)
 library(dbarts)
 library(foreach)
 library(doParallel)
@@ -145,7 +145,7 @@ BARTpred=function(df, treat=going_concern, Outcome=bankrptobs,vars){
   
   # mono fits
   
-  bart_mono = monbart::monotone_bart(y = as.numeric(c(ytrain1, ytrain0)==1),
+  bart_mono = monotone_bart(y = as.numeric(c(ytrain1, ytrain0)==1),
                             z = 1-c(rep(1, length(ytrain1)), rep(0, length(ytrain0))),
                             x = rbind(xtraintreat, xtraincontrol),
                             xpred = xtest, nskip = 2000, ndpost = 2000,m=100)
@@ -385,13 +385,13 @@ ninetyperc_diff=colMeans(ninetyperc_large)-colMeans(ninetyperc_small)
 
 #  #name RR_post_diff_newvars.pdf in the new_vars_trees with 7x5 pdf
  plot(density(sdpt5_diff), col='dodgerblue4',main='', ylim=c(0, 0.1),xlim=c(0, 200),
-      lwd=2, xlab='Posterior Inducement')
- lines(density(sd1_diff), col='firebrick4', lwd=2)
- lines(density(rightbump_diff), col='darkorchid4', lwd=2)
- lines(density(ninetyperc_diff), col='black', lwd=2)
+      lwd=2,lty=1, xlab='Posterior Inducement')
+ lines(density(sd1_diff),lty=2, col='firebrick4', lwd=2)
+ lines(density(rightbump_diff),lty=3, col='darkorchid4', lwd=2)
+ lines(density(ninetyperc_diff), lty=4,col='black', lwd=2)
  legend("topright", legend=c(expression(paste("f" [1],"(u)")), expression(paste("f" [2],"(u)")), 
                         expression(paste("f" [3],"(u)")), expression(paste("f" [4],"(u)"))),
-       col=c("dodgerblue4", "firebrick4", 'darkorchid4', 'black'), lty=1, cex=1.1)
+       col=c("dodgerblue4", "firebrick4", 'darkorchid4', 'black'), lty=c(1,2,3,4), cex=1.1)
 
 
 
@@ -442,13 +442,14 @@ ninetyperc_diff=colMeans(ninetyperc_large)-colMeans(ninetyperc_small)
  mean(ninetyperc_diff)
  #  #name treat_post_diff_newvars.pdf in the new_vars_trees with 7x5 pdf
  plot(density(sdpt5_diff), col='dodgerblue4',main='', ylim=c(0, 60),xlim=c(0, .2),
-      lwd=2, xlab='Posterior Treatment')
- lines(density(sd1_diff), col='firebrick4', lwd=2)
- lines(density(rightbump_diff), col='darkorchid4', lwd=2)
- lines(density(ninetyperc_diff), col='black', lwd=2)
+      lwd=2, lty=1,xlab='Posterior Treatment')
+ lines(density(sd1_diff),lty=2, col='firebrick4', lwd=2)
+ lines(density(rightbump_diff), lty=3,col='darkorchid4', lwd=2)
+ lines(density(ninetyperc_diff), lty=4,col='black', lwd=2)
  legend("topright", legend=c(expression(paste("f" [1],"(u)")), expression(paste("f" [2],"(u)")), 
                              expression(paste("f" [3],"(u)")), expression(paste("f" [4],"(u)"))),
-        col=c("dodgerblue4", "firebrick4", 'darkorchid4', 'black'), lty=1, cex=1.1)
+        col=c("dodgerblue4", "firebrick4",
+              'darkorchid4', 'black'), lty=c(1,2,3,4), cex=1.1)
   
 ####B1 tree####
  #### Repeat but for the B1 tree ####
@@ -500,13 +501,14 @@ ninetyperc_diff=colMeans(ninetyperc_large)-colMeans(ninetyperc_small)
  library(latex2exp)
  #name B1_post_diff_newvars.pdf in the new_vars_trees with 7x5 pdf
  plot(density(sdpt5_diff), col='dodgerblue4',main='', ylim=c(0, 60),xlim=c(0, .2),
-      lwd=2, xlab=TeX(sprintf("$Posterior\\; \\Pr(B=1 | x, do(G=1))$", alpha)))
- lines(density(sd1_diff), col='firebrick4', lwd=2)
- lines(density(rightbump_diff), col='darkorchid4', lwd=2)
- lines(density(ninetyperc_diff), col='black', lwd=2)
+      lwd=2, lty=1,xlab=TeX(sprintf("$Posterior\\; \\Pr(B=1 | x, do(G=1))$", alpha)))
+ lines(density(sd1_diff), lty=2,col='firebrick4', lwd=2)
+ lines(density(rightbump_diff), lty=3,col='darkorchid4', lwd=2)
+ lines(density(ninetyperc_diff), lty=4,col='black', lwd=2)
  legend("topright", legend=c(expression(paste("f" [1],"(u)")), expression(paste("f" [2],"(u)")), 
                              expression(paste("f" [3],"(u)")), expression(paste("f" [4],"(u)"))),
-        col=c("dodgerblue4", "firebrick4", 'darkorchid4', 'black'), lty=1, cex=1.1)
+        col=c("dodgerblue4", "firebrick4", 
+              'darkorchid4', 'black'), lty=c(1,2,3,4), cex=1.1)
  
  
  ####B0 tree####
@@ -556,14 +558,15 @@ ninetyperc_diff=colMeans(ninetyperc_large)-colMeans(ninetyperc_small)
  # 
  library(latex2exp)
  #name B0_post_diff_newvars.pdf in the new_vars_trees with 7x5 pdf
- plot(density(sdpt5_diff), col='dodgerblue4',main='', ylim=c(0, 60),xlim=c(0, .15),
-      lwd=2, xlab=TeX(sprintf("$Posterior\\; \\Pr(B=1 | x, do(G=0))$", alpha)))
- lines(density(sd1_diff), col='firebrick4', lwd=2)
- lines(density(rightbump_diff), col='darkorchid4', lwd=2)
- lines(density(ninetyperc_diff), col='black', lwd=2)
+ plot(density(sdpt5_diff), col='dodgerblue4',main='', ylim=c(0, 60),xlim=c(0, .250),
+      lwd=2,lty=1,xlab=TeX(sprintf("$Posterior\\; \\Pr(B=1 | x, do(G=0))$", alpha)))
+ lines(density(sd1_diff), lty=2,col='firebrick4', lwd=2)
+ lines(density(rightbump_diff),lty=3, col='darkorchid4', lwd=2)
+ lines(density(ninetyperc_diff), lty=4,col='black', lwd=2)
  legend("topright", legend=c(expression(paste("f" [1],"(u)")), expression(paste("f" [2],"(u)")), 
                              expression(paste("f" [3],"(u)")), expression(paste("f" [4],"(u)"))),
-        col=c("dodgerblue4", "firebrick4", 'darkorchid4', 'black'), lty=1, cex=1.1)
+        col=c("dodgerblue4", "firebrick4", 
+              'darkorchid4', 'black'), lty=c(1,2,3,4), cex=1.1)
  
  
  
@@ -656,10 +659,11 @@ ninetyperc_diff=colMeans(ninetyperc_large)-colMeans(ninetyperc_small)
  RD_tau <- mean(rowMeans(B1_frame[largest_index_treat,])/rowMeans(B0_frame[largest_index_treat,]))
  RD_quantile <- quantile(rowMeans(B1_frame[largest_index_treat,])/rowMeans(B0_frame[largest_index_treat,]),
                          c(0.025, .5, .975))
- 
+
  RD_obs <- t(RR)[largest_index_treat,]
  
  RD_obs_mean <- mean(rowMeans(RD_obs))
+
  xtable::xtable(data.frame(RD_obs_mean, RD_B0, RD_B1,
                            RD_tau, RD_quantile[1], 
                            RD_quantile[3]))
