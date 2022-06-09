@@ -1,1 +1,1 @@
-This folder contains the files to run the data examples.  The names correspond to the figures, although the file figure7_comparefirms.R also contains the code for table2
+This folder contains the files to run the data examples.  The names correspond to the figures, although the file figure7_comparefirms.R also contains the code for table2.  The bottom two rows of table2 can be obtained from figures_8_to_10_newvar.R
