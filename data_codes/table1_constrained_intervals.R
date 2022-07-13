@@ -314,7 +314,7 @@ filenames_B1 <- c("mean0sd0.1_credint_B1.csv", "mean0sd0.5_credint_B1.csv",
 
 registerDoParallel(cores = n_cores)
 ptm = proc.time()
-for (k in 5:length(functionlist)){
+for (k in 1:length(functionlist)){
   set.seed(12296)
   post_num = 500
   post_list=sample.int(2000, post_num, replace=F)
