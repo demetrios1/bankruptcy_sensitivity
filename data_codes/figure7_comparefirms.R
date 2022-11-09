@@ -608,6 +608,149 @@ library(gridExtra)
 grid.arrange(apple_1, radioshack_1,nrow=1)
 ggsave("/home/dpapakos/sensitivity_analysis/Apple_radioshack_right_RR_navy.pdf", 
        grid.arrange(apple_1, radioshack_1,nrow=1), height=5, width=10 )
+
+
+
+library(tidyverse)
+
+tau_frame=t(fill3_B1-fill3_B0)
+
+tau_frame_2=data.frame(CIK=data_CIK_fix$CIK,GC=data_CIK_fix$going_concern,
+                       bank=data_CIK_fix$bankrptobs, date=data_CIK_fix$sig_date_of_op_s, tau_frame)
+
+tau_frame_2=right_join(cik_ticker,tau_frame_2)
+rowMeans(data.frame(tau_frame_2%>%
+                      dplyr::filter( grepl( "CVS" , Name)))[, 6:504])
+#View(head(data.frame(tau_frame_2%>%
+#                      dplyr::filter( grepl( "CVS" , Name)))[, 12:504]))
+rowMeans(data.frame(tau_frame_2%>%
+                      dplyr::filter( grepl( "Jetblue Airways Corp" , Name)))[, 6:504])
+jet_blue_2007=data.frame(tau_frame_2%>%
+                           dplyr::filter( grepl( "Jetblue Airways Corp" , Name)))[1, 6:504]
+jet_blue_2009=data.frame(tau_frame_2%>%
+                           filter( grepl( "Jetblue Airways Corp" , Name)))[2, 6:504]
+jet_blue_2006=data.frame(tau_frame_2%>%
+                           filter( grepl( "Jetblue Airways Corp" , Name)))[3, 6:504]
+apple_2001=data.frame(tau_frame_2%>%
+                        filter( grepl( "Apple Inc" , Name)))[1, 6:504]
+build_bear_2010=data.frame(tau_frame_2%>%
+                             filter( grepl( "Build A Bear Workshop Inc" , Name)))[1, 6:504]
+build_bear_2013=data.frame(tau_frame_2%>%
+                             filter( grepl( "Build A Bear Workshop Inc" , Name)))[2, 6:504]
+build_bear_2012=data.frame(tau_frame_2%>%
+                             filter( grepl( "Build A Bear Workshop Inc" , Name)))[3, 6:504]
+build_bear_2014=data.frame(tau_frame_2%>%
+                             filter( grepl( "Build A Bear Workshop Inc" , Name)))[4, 6:504]
+
+blockbuster_2009=data.frame(tau_frame_2%>%
+                              filter( grepl( "Blockbuster" , Name)))[3, 6:504]
+blockbuster_2004=data.frame(tau_frame_2%>%
+                              filter( grepl( "Blockbuster" , Name)))[5, 6:504]
+
+radioshack_2014=data.frame(tau_frame_2%>%
+                             filter( grepl( "Radioshack Corp" , Name)))[1, 6:504]
+radioshack_2013=data.frame(tau_frame_2%>%
+                             filter( grepl( "Radioshack Corp" , Name)))[2, 6:504]
+
+sixflags_2009=data.frame(tau_frame_2%>%
+                           filter( grepl( "Six Flags" , Name)))[1, 6:504]
+
+sixflags_2006=data.frame(tau_frame_2%>%
+                           filter( grepl( "Six Flags" , Name)))[4, 6:504]
+quantile(radioshack_2014, c(0.025, .5, .975))
+quantile(jet_blue_2007, c(0.025, .5, .975))
+sdpt5_frame=data.frame(
+  firms=c('jetblue_2007', 'jetblue_2009', 'apple_2001', 'build_a_bear_2010', 
+          'build_a_bear_2014', 'radioshack_2014', 'blockbuster_2004', 
+          'blockbuster_2009', 'sixflags_2006', 'sixflags_2009'),
+  post_mean=c(rowMeans(jet_blue_2007), rowMeans(jet_blue_2009),
+              rowMeans(apple_2001), rowMeans(build_bear_2010), rowMeans(build_bear_2014), 
+              rowMeans(radioshack_2014),  
+              rowMeans(blockbuster_2004), rowMeans(blockbuster_2009), 
+              rowMeans(sixflags_2006), rowMeans(sixflags_2009)),
+  lower=c(
+    unlist(quantile(jet_blue_2007, c(0.025, .5, .975))[1]),
+    unlist(quantile(jet_blue_2009, c(0.025, .5, .975))[1]),
+    unlist(quantile(apple_2001, c(0.025, .5, .975))[1]),
+    unlist(quantile(build_bear_2010, c(0.025, .5, .975))[1]),
+    unlist(quantile(build_bear_2014, c(0.025, .5, .975))[1]),
+    #unlist(quantile(radioshack_2013, c(0.025, .5, .975))[1]), 
+    unlist(quantile(radioshack_2014, c(0.025, .5, .975))[1]), 
+    unlist(quantile(blockbuster_2004, c(0.025, .5, .975))[1]), 
+    unlist(quantile(blockbuster_2009, c(0.025, .5, .975))[1]),
+    unlist(quantile(sixflags_2006, c(0.025, .5, .975))[1]), 
+    unlist(quantile(sixflags_2009, c(0.025, .5, .975))[1])),
+  upper=c(
+    unlist(quantile(jet_blue_2007, c(0.025, .5, .975))[3]),
+    unlist(quantile(jet_blue_2009, c(0.025, .5, .975))[3]),
+    unlist(quantile(apple_2001, c(0.025, .5, .975))[3]),
+    unlist(quantile(build_bear_2010, c(0.025, .5, .975))[3]),
+    unlist(quantile(build_bear_2014, c(0.025, .5, .975))[3]),
+    # unlist(quantile(radioshack_2013, c(0.025, .5, .975))[3]), 
+    unlist(quantile(radioshack_2014, c(0.025, .5, .975))[3]), 
+    unlist(quantile(blockbuster_2004, c(0.025, .5, .975))[3]), 
+    unlist(quantile(blockbuster_2009, c(0.025, .5, .975))[3]),
+    unlist(quantile(sixflags_2006, c(0.025, .5, .975))[3]), 
+    unlist(quantile(sixflags_2009, c(0.025, .5, .975))[3]))
+)
+
+#write.csv(sdpt5_frame, '/home/dpapakos/sensitivity_analysis/rightbumpindividfirm.csv')
+#write.csv(sdpt5_frame, '/home/dpapakos/sensitivity_analysis/individual_results/rightbumpindividfirm.csv')
+library(tidyverse)
+dim(apple_2001)
+tauframe_apple=t(apple_2001)[1:499,]
+tauframe_apple=as.numeric(tauframe_apple)
+df_apple=data.frame(tau=tauframe_apple)
+
+dim(apple_2001)
+tauframe_apple=t(apple_2001)[1:499,]
+tauframe_apple=as.numeric(tauframe_apple)
+df_apple=data.frame(tau=tauframe_apple)
+
+par(mfrow=c(2,1))
+apple_1=df_apple%>%
+  ggplot(aes(x=tau))+geom_histogram(aes(y=..count../sum(..count..)),
+                                    color='white',fill='#1d2951', bins=25)+
+  ggtitle('Apple 2001')+
+  ylab('Density')+xlab('Risk Difference')+scale_x_continuous(limits = 
+                              c(0, max(df_apple$tau)-0.1),
+                      breaks = round(seq(0.0, max(df_apple$tau),
+                                         length.out = 10), 
+                    2))+  scale_y_continuous(limits = 
+                                               c(0, 0.35,
+                                                 breaks = round(seq(0.0, 0.40,
+                                                                    length.out = 10), 
+                                                                2)))+
+  theme_minimal(base_size = 14)+
+  theme(plot.title = element_text(hjust = 0.5,size=16))
+apple_1
+tauframe_radioshack=t(radioshack_2014)[1:499,]
+tauframe_radioshack=as.numeric(tauframe_radioshack)
+df_radioshack=data.frame(tau=tauframe_radioshack)
+
+radioshack_1=df_radioshack%>%
+  ggplot(aes(x=tau))+
+  geom_histogram(aes(y=..count../sum(..count..)),color='white',
+                 fill='#1d2951', bins=25)+
+  ggtitle('Radioshack 2014')+
+  ylab('Density')+xlab('Risk Difference')+
+  scale_x_continuous(limits = 
+                       c(0, max(df_apple$tau)-0.1),
+                     breaks = round(seq(0.0, max(df_apple$tau),
+                                        length.out = 10), 
+                                    2))+
+  scale_y_continuous(limits = 
+                       c(0, 0.40,
+                     breaks = round(seq(0.0, 0.40,
+                                        length.out = 10), 
+                                    2)))+theme_minimal(base_size = 14)+
+  theme(plot.title = element_text(hjust = 0.5,size=16))
+radioshack_1
+library(gridExtra) 
+grid.arrange(apple_1, radioshack_1,nrow=1)
+ggsave("/home/dpapakos/sensitivity_analysis/Apple_radioshack_right_treat_navy.pdf", 
+       grid.arrange(apple_1, radioshack_1,nrow=1), height=5, width=10 )
+
 ####TREATMENT EFFECTS!####
 tau_frame=t(fill3_B1-fill3_B0)
 
